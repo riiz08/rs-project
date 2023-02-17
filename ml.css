@@ -330,7 +330,7 @@ img[class="short-pay-img"] {
   }
 
   img[class="cover"] {
-    width: 360px
+    width: 100%;
   }
 }
 
