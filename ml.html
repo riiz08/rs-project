@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Yoru Store | MLBB</title>
+  <link rel="stylesheet" href="ml.css" />
+  <link rel="icon" href="assets/img/ruu.png" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="https://kit.fontawesome.com/dc407dc77a.css" crossorigin="anonymous">
+</head>
+<body style="background: #343434;">
+  
+  <img src="assets/img/cover.jpeg" class="cover" alt="">
+  
+  
+  <div class="container-ic">
+  <img src="assets/img/ml.png" alt="" class="icon">
+  <h2 class="title-ic">
+    Mobile Legends
+  </h2>
+  </div>
+  
+  <div class="instruction">
+    <h6 class="title-ins">Cara order :</h6>
+    <ol>
+      <li class="ins-list">Masukan ID & (Server)</li>
+      <li class="ins-list">Pilih nominal diamond</li>
+      <li class="ins-list">Pilih metode pembayaran</li>
+      <li class="ins-list">Masukan nomor Whatsapp dengan benar!</li>
+      <li class="ins-list">Klik beli sekarang dan lakukan pembayaran</li>
+      <li class="ins-list">Diamond akan masuk otomatis ke akun anda</li>
+    </ol>
+    <h3 class="note">Note: Transer sesuai nominal agar terdeteksi oleh sistem kami</h3>
+  </div>
+  
+  <div class="container-form">
+    <div class="cardInputId">
+      <h2 class="titleInput">Masukan Player ID</h2>
+      <div class="wrap-input">
+      <input type="number" placeholder="Masukan ID" name="userId" id="userId" required />
+      <input type="number" placeholder="Masukan Server" name="serverId" id="serverId" required />
+      </div>
+    </div>
+    
+    <div class="container-nom">
+      <h2 class="title-nom">Pilih Nominal</h2>
+      <div class="container-nom-dm">
+        <div class="radio-button"></div>
+        <label class="col-nom">
+          <input type="radio" name="nom-1" id="nom-1" />
+          <span class="radio-btn"><i class="bi bi-check"></i><h6 class="nom-dm">86 (78 + 8 Bonus) Diamonds <i class="bi bi-gem"></i></h6>
+      <p class="harga-dm">Rp 19.700</p></span>
+        </label>
+      </div>
+    </div>
+    
+    
+    <div class="container-payment">
+      <h2 class="payment-title">Pilih Metode Pembayaran</h2>
+      <div class="radio-button"></div>
+      <div class="card-payment" id="card-payment">
+        <div class="card-payment-header">
+          <i class="fa-sharp fa-solid fa-qrcode"></i>
+        <h5 class="title-payment-ruu">QRIS</h5>
+        </div>
+        <div id="short-payment-info" class="short-payment-info">
+          <div class="item-short">
+          <img src="assets/img/dana.png" alt="" class="short-pay-img">
+          <img src="assets/img/spay.png" alt="" class="short-pay-img">
+          <img src="assets/img/bca.png" alt="" class="short-pay-img">
+          <i id="chevron" class="fa fa-chevron-down"></i>
+          </div>
+        </div>
+        <div class="action-payment-button" id="btn-pay">
+          <div class="pay-item">
+            <label for="pay-1" class="col-pay">
+              <input type="radio" name="pay-1" id="pay-1" />
+              <span class="radio-btn1"><i class="bi bi-check"></i>
+            <div class="img-pay">
+              <img src="assets/img/dana.png" alt="" class="pay-list">
+              <img src="assets/img/spay.png" alt="" class="pay-list">
+              <img src="assets/img/ovo.png" alt="" class="pay-list">
+            </div>
+            <div class="line-pay"></div>
+            <div class="desc-pay">
+            <h6>Gopay,Dana,Ovo,Shopeepay,</h6>
+            <h6>Mandiri,BCA,Linkaja,DLL</h6>
+            <p>Dicek Otomatis</p>
+            </div> 
+            </span>
+            </label>
+          </div>
+        </div>
+      </div>
+      
+      
+    </div>
+    
+    
+    
+  </div>
+ 
+ 
+ <script>
+ const cardPayment = document.getElementById('card-payment');
+ 
+ cardPayment.addEventListener('click', function() {
+   const actionButton = document.getElementById('btn-pay');
+   const shortPayImg = document.querySelectorAll('.short-pay-img');
+   const chevron =document.getElementById('chevron');
+   
+   if (actionButton.style.display == 'none') {
+     actionButton.style.display = 'block';
+   shortPayImg.forEach(function(img) {
+     img.style.display = 'none';
+   });
+   chevron.classList.replace('fa-chevron-down', 'fa-chevron-up');
+   } else {
+     actionButton.style.display = 'none';
+     chevron.classList.replace('fa-chevron-up', 'fa-chevron-down');
+     shortPayImg.forEach(function(img) {
+       img.style.display = 'block';
+     });
+   }
+ })
+ </script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://kit.fontawesome.com/dc407dc77a.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
+</body>
+</html>
