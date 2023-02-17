@@ -69,8 +69,9 @@
         <div id="short-payment-info" class="short-payment-info">
           <div class="item-short">
           <img src="assets/img/dana.png" alt="" class="short-pay-img">
-          <img src="assets/img/spay.png" alt="" class="short-pay-img">
+          <img src="assets/img/mandiri.png" alt="" class="short-pay-img">
           <img src="assets/img/bca.png" alt="" class="short-pay-img">
+          <img src="assets/img/qris.png" alt="" class="short-pay-img">
           <i id="chevron" class="fa fa-chevron-down"></i>
           </div>
         </div>
@@ -78,6 +79,43 @@
           <div class="pay-item">
             <label for="pay-1" class="col-pay">
               <input type="radio" name="pay-1" id="pay-1" />
+              <span class="radio-btn1"><i class="bi bi-check"></i>
+            <div class="img-pay">
+              <img src="assets/img/dana.png" alt="" class="pay-list">
+              <img src="assets/img/spay.png" alt="" class="pay-list">
+              <img src="assets/img/ovo.png" alt="" class="pay-list">
+            </div>
+            <div class="line-pay"></div>
+            <div class="desc-pay">
+            <h6>Gopay,Dana,Ovo,Shopeepay,</h6>
+            <h6>Mandiri,BCA,Linkaja,DLL</h6>
+            <p>Dicek Otomatis</p>
+            </div> 
+            </span>
+            </label>
+          </div>
+        </div>
+      </div>
+      
+      
+      <div class="radio-button"></div>
+      <div class="card-payment" id="card-payment">
+        <div class="card-payment-header">
+          <i class="fa-solid fa-wallet"></i>
+        <h5 class="title-payment-ruu">E-WALLET</h5>
+        </div>
+        <div id="short-payment-info" class="short-payment-info">
+          <div class="item-short">
+          <img src="assets/img/dana.png" alt="" class="short-pay-img">
+          <img src="assets/img/spay.png" alt="" class="short-pay-img">
+          <img src="assets/img/ovo.png" alt="" class="short-pay-img">
+          <i id="chevron" class="fa fa-chevron-down"></i>
+          </div>
+        </div>
+        <div class="action-payment-button" id="btn-pay">
+          <div class="pay-item">
+            <label for="pay-2" class="col-pay">
+              <input type="radio" name="pay-2" id="pay-2" />
               <span class="radio-btn1"><i class="bi bi-check"></i>
             <div class="img-pay">
               <img src="assets/img/dana.png" alt="" class="pay-list">
@@ -105,27 +143,35 @@
  
  
  <script>
- const cardPayment = document.getElementById('card-payment');
- 
- cardPayment.addEventListener('click', function() {
-   const actionButton = document.getElementById('btn-pay');
-   const shortPayImg = document.querySelectorAll('.short-pay-img');
-   const chevron =document.getElementById('chevron');
-   
-   if (actionButton.style.display == 'none') {
-     actionButton.style.display = 'block';
-   shortPayImg.forEach(function(img) {
-     img.style.display = 'none';
-   });
-   chevron.classList.replace('fa-chevron-down', 'fa-chevron-up');
-   } else {
-     actionButton.style.display = 'none';
-     chevron.classList.replace('fa-chevron-up', 'fa-chevron-down');
-     shortPayImg.forEach(function(img) {
-       img.style.display = 'block';
-     });
-   }
- })
+ const cards = document.querySelectorAll('.card-payment');
+cards.forEach(function(card) {
+  card.addEventListener('click', showPayList);
+});
+
+function showPayList(event) {
+  const actionButton = event.currentTarget.querySelector('.action-payment-button');
+  const shortPayImg = event.currentTarget.querySelectorAll('.short-pay-img');
+  const chevron = event.currentTarget.querySelector('#chevron');
+
+  if (actionButton.style.display == 'none' || actionButton.style.display == '') {
+    actionButton.style.display = 'block';
+    shortPayImg.forEach(function(img) {
+      img.style.display = 'none';
+    });
+    chevron.classList.replace('fa-chevron-down', 'fa-chevron-up');
+  } else {
+    actionButton.style.display = 'none';
+    chevron.classList.replace('fa-chevron-up', 'fa-chevron-down');
+    shortPayImg.forEach(function(img) {
+      img.style.display = 'block';
+    });
+  }
+}
+
+
+
+
+
  </script>
  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://kit.fontawesome.com/dc407dc77a.js" crossorigin="anonymous"></script>
