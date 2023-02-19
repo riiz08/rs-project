@@ -33,7 +33,7 @@
       <li class="ins-list">Klik beli sekarang dan lakukan pembayaran</li>
       <li class="ins-list">Diamond akan masuk otomatis ke akun anda</li>
     </ol>
-    <h3 class="note">Note: Transer sesuai nominal agar terdeteksi oleh sistem kami</h3>
+    <h3 class="note">Note: Transfer sesuai nominal agar terdeteksi oleh sistem kami</h3>
   </div>
   
   <div class="container-form">
@@ -58,7 +58,7 @@
     </div>
     
     
-    <div class="container-payment">
+    <div class="container-payment" id="contPayment">
       <h2 class="payment-title">Pilih Metode Pembayaran</h2>
       <div class="radio-button"></div>
       <div class="card-payment" id="card-payment">
@@ -75,10 +75,10 @@
           <i id="chevron" class="fa fa-chevron-down"></i>
           </div>
         </div>
-        <div class="action-payment-button" id="btn-pay">
+        <div class="action-payment-button">
           <div class="pay-item">
-            <label for="pay-1" class="col-pay">
-              <input type="radio" name="pay-1" id="pay-1" />
+            <label for="qrisPayment" class="col-pay">
+              <input type="radio" name="payment" class="pay" id="qrisPayment" />
               <span class="radio-btn1"><i class="bi bi-check"></i>
             <div class="img-pay">
               <img src="assets/img/dana.png" alt="" class="pay-list">
@@ -112,20 +112,56 @@
           <i id="chevron" class="fa fa-chevron-down"></i>
           </div>
         </div>
-        <div class="action-payment-button" id="btn-pay">
+        <div class="action-payment-button">
           <div class="pay-item">
-            <label for="pay-2" class="col-pay">
-              <input type="radio" name="pay-2" id="pay-2" />
+            <label for="danaPayment" class="col-pay">
+              <input type="radio" name="payment" class="pay" id="danaPayment" />
               <span class="radio-btn1"><i class="bi bi-check"></i>
             <div class="img-pay">
-              <img src="assets/img/dana.png" alt="" class="pay-list">
-              <img src="assets/img/spay.png" alt="" class="pay-list">
-              <img src="assets/img/ovo.png" alt="" class="pay-list">
+              <img src="assets/img/dana.png" alt="" class="pay-logo">
             </div>
             <div class="line-pay"></div>
             <div class="desc-pay">
-            <h6>Gopay,Dana,Ovo,Shopeepay,</h6>
-            <h6>Mandiri,BCA,Linkaja,DLL</h6>
+            <h6>DANA PAYMENT</h6>
+            <p>Dicek Otomatis</p>
+            </div> 
+            </span>
+            </label>
+            <label for="shopeePayPayment" class="col-pay">
+              <input type="radio" name="payment" class="pay" id="shopeePayPayment" />
+              <span class="radio-btn1"><i class="bi bi-check"></i>
+            <div class="img-pay">
+              <img src="assets/img/spay.png" alt="" class="pay-logo">
+            </div>
+            <div class="line-pay"></div>
+            <div class="desc-pay">
+            <h6>SHOPEEPAY PAYMENT</h6>
+            <p>Dicek Otomatis</p>
+            </div> 
+            </span>
+            </label>
+            <label for="gopayPayment" class="col-pay">
+              <input type="radio" name="payment" class="pay" id="gopayPayment" />
+              <span class="radio-btn1"><i class="bi bi-check"></i>
+            <div class="img-pay">
+              <img src="assets/img/gopay.png" alt="" class="pay-logo">
+            </div>
+            <div class="line-pay"></div>
+            <div class="desc-pay">
+            <h6>GOPAY PAYMENT</h6>
+            <p>Dicek Otomatis</p>
+            </div> 
+            </span>
+            </label>
+            <label for="ovoPayment" class="col-pay">
+              <input type="radio" name="payment" class="pay" id="ovoPayment" />
+              <span class="radio-btn1"><i class="bi bi-check"></i>
+            <div class="img-pay">
+              <img src="assets/img/ovo.png" alt="" class="pay-logo">
+            </div>
+            <div class="line-pay"></div>
+            <div class="desc-pay">
+            <h6>OVO PAYMENT</h6>
             <p>Dicek Otomatis</p>
             </div> 
             </span>
@@ -134,48 +170,49 @@
         </div>
       </div>
       
-      
     </div>
     
     
-    
+
+
   </div>
  
- 
  <script>
- const cards = document.querySelectorAll('.card-payment');
-cards.forEach(function(card) {
-  card.addEventListener('click', showPayList);
-});
+ // Mendapatkan semua kartu dengan class "card-payment"
+const cards = document.querySelectorAll('.card-payment');
 
-function showPayList(event) {
-  const actionButton = event.currentTarget.querySelector('.action-payment-button');
-  const shortPayImg = event.currentTarget.querySelectorAll('.short-pay-img');
-  const chevron = event.currentTarget.querySelector('#chevron');
-
-  if (actionButton.style.display == 'none' || actionButton.style.display == '') {
-    actionButton.style.display = 'block';
-    shortPayImg.forEach(function(img) {
-      img.style.display = 'none';
-    });
-    chevron.classList.replace('fa-chevron-down', 'fa-chevron-up');
-  } else {
-    actionButton.style.display = 'none';
-    chevron.classList.replace('fa-chevron-up', 'fa-chevron-down');
-    shortPayImg.forEach(function(img) {
+// Loop melalui setiap kartu dan menambahkan event listener
+cards.forEach((card, index) => {
+  card.addEventListener('click', () => {
+    // Mendapatkan kartu sebelumnya
+    const previousCard = document.querySelector('.active');
+    // Menghapus kelas "active" dari kartu sebelumnya dan mengubah tampilannya menjadi "none"
+    if (previousCard !== null) {
+      previousCard.classList.remove('active');
+      previousCard.querySelector('.action-payment-button').style.display = 'none';
+      previousCard.querySelectorAll('.short-pay-img').forEach(img => {
       img.style.display = 'block';
     });
-  }
-}
-
-
-
-
+      previousCard.querySelector('.fa-chevron-up').classList.remove('fa-chevron-up');
+      previousCard.querySelector('.fa').classList.add('fa-chevron-down');
+    }
+    // Menambahkan kelas "active" ke kartu saat ini dan mengubah tampilannya menjadi "block"
+    card.classList.add('active');
+    card.querySelector('.action-payment-button').style.display = 'block';
+    card.querySelectorAll('.short-pay-img').forEach(img => {
+      img.style.display = 'none';
+    });
+    card.querySelector('.fa-chevron-down').classList.remove('fa-chevron-down');
+    card.querySelector('.fa').classList.add('fa-chevron-up');
+  });
+});
 
  </script>
+ 
  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://kit.fontawesome.com/dc407dc77a.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+  <script src="main.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
 </body>
 </html>

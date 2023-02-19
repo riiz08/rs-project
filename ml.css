@@ -240,7 +240,8 @@ img[class="short-pay-img"] {
 }
 
 .desc-pay {
-  margin-top: 30px;
+  margin-top: 35px;
+  color: #EDF2F6;
 }
 
 .desc-pay p {
@@ -261,6 +262,7 @@ img[class="short-pay-img"] {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 5px;
 }
 .pay-list {
   margin-top: 1px;
@@ -273,7 +275,7 @@ img[class="short-pay-img"] {
   border-radius: 5px;
   background: #EDF2F6;
   width: 80px;
-  margin-top: 5px;
+  margin-top: 2px;
   margin-left: auto;
   margin-right: auto;
   height: 1px;
@@ -292,9 +294,14 @@ img[class="short-pay-img"] {
 }
 
 .action-payment-button {
-  height: 115px;
-  display: none;
   width: 280px;
+  display: none;
+  background: rgba(128, 128, 128, 0.2);
+}
+
+.action-payment-button.active {
+  width: 280px;
+  display: inline-block;
   background: rgba(128, 128, 128, 0.2);
 }
 
@@ -337,9 +344,23 @@ img[class="short-pay-img"] {
 .col-pay input:checked + .radio-btn1 {
   background: linear-gradient(316deg, transparent 80%, #E6B400 20%);
   box-shadow: 0 0 10px #E6B400;
+  color: white;
 }
 
 .col-pay input:checked + .radio-btn1 > i {
   opacity: 1;
   transform: translateX(-50%) scale(1);
+}
+
+
+
+.action-payment-button label {
+  margin-bottom: 20px;
+  margin-top: 15px;
+  margin-left: 5px;
+}
+
+
+.pay-logo {
+  width: 50px;
 }

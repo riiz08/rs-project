@@ -1,3 +1,7 @@
+
+
+
+
 function autoplayCarousel() {
     const carouselEl = document.getElementById("carousel");
     const slideContainerEl = carouselEl.querySelector("#slide-container");
@@ -65,3 +69,4 @@ function autoplayCarousel() {
     });
 }
 autoplayCarousel();
+
